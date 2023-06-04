@@ -1,0 +1,97 @@
+.taskList > header form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: calc(0px - 1.5rem - 6px);
+}
+
+.taskList > header form input {
+    background: var(--gray-500);
+    width: 39.875rem;
+    height: 3.375rem;
+    border-radius: 8px;
+    padding: 1rem;
+    color: var(--gray-300);
+    border: solid var(--gray-700);
+}
+
+.taskList > header form input:focus-within {
+    color: var(--gray-100);
+}
+
+.taskList > header form button[type=submit] {
+    background: var(--blue-500);
+    color: var(--gray-100);
+    width: 5.625rem;
+    height: 3.25rem;
+    border-radius: 8px;
+    border: 0;
+    cursor: pointer;
+    justify-content: space-evenly;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.875rem;
+    padding: 0.5rem;
+
+    transition: color 0.1s, background-color 0.1s;
+}
+
+.taskList > header form button[type=submit]:hover {
+    background: var(--blue-300);
+}
+
+.taskListContentTop {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.createdTask {
+    color: var(--blue-300);
+    font-size: 0.875rem;
+    font-weight: bold;
+}
+
+.finishedTask {
+    color: var(--purple-300);
+    font-size: 0.875rem;
+    font-weight: bold;
+}
+
+.taskListContentTop span {
+    margin-left: 0.5rem;
+    padding: 0.125rem 0.5rem;
+    background: var(--gray-400);
+    color: var(--gray-200);
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 999px;
+}
+
+.taskListContent {
+    height: 15.25rem;
+    line-height: 1.4;
+    padding: 4rem 1.5rem;
+    text-align: center;
+    border-top: solid var(--gray-400);
+    border-radius: 8px;
+    margin-top: 1.5rem;
+}
+
+.taskListContent p:first-of-type {
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.taskListContent p {
+    color: var(--gray-300);
+}
+
+.taskListContent ClipboardText {
+    color: var(--blue-300);
+}
+
+.taskListContentIcon {
+    color: var(--gray-400);
+}

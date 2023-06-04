@@ -1,0 +1,70 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalContent {
+    background: var(--gray-400);
+    padding: 1.25rem;
+    border-radius: 5px;
+    height: 10rem;
+    width: 20rem;
+    justify-content: flex-end;
+}
+
+.modalContent header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: solid var(--gray-500);
+    padding: 0 0 0.5rem 0;
+}
+
+.modalContent header h3 {
+    color: var(--purple-300);
+}
+
+.modalContent p {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: var(--gray-100);
+}
+
+.modalContent footer {
+    margin-top: 2rem;
+    justify-content: flex-end;
+}
+
+.modalContent footer a {
+    text-decoration: none;
+    background: transparent;
+    border: solid var(--gray-500);
+    color: var(--gray-200);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    padding: 0.375rem;
+    margin-top: 1rem;
+    height: 1.875rem;
+    width: 5rem;
+    justify-content: space-evenly;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.closeButton {
+    cursor: pointer;
+}
+
+.modalContent footer a:hover {
+    background: var(--gray-400);
+    color: var(--red-500);
+}
