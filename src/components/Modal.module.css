@@ -1,3 +1,38 @@
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+@keyframes slideOut {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-100%);
+    }
+}
+
+@keyframes shake {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-10px);
+    }
+    50% {
+      transform: translateX(10px);
+    }
+    75% {
+      transform: translateX(-10px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+}
+
 .modal {
     position: fixed;
     top: 0;
@@ -8,15 +43,30 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 9999;
+}
+
+.modalShake {
+    animation: shake 0.3s ease-in-out;
 }
 
 .modalContent {
     background: var(--gray-400);
     padding: 1.25rem;
     border-radius: 5px;
-    height: 10rem;
+    min-height: 10rem;
     width: 20rem;
     justify-content: flex-end;
+}
+
+.modalContentOpen {
+    /* Adicione a animação */
+    animation: slideIn 0.3s ease-in-out;
+}
+
+.modalContentClose {
+    /* Adicione a animação */
+    animation: slideOut 0.3s ease-in-out;
 }
 
 .modalContent header {
@@ -46,7 +96,7 @@
     text-decoration: none;
     background: transparent;
     border: solid var(--gray-500);
-    color: var(--gray-200);
+    color: var(--gray-300);
     border-radius: 8px;
     cursor: pointer;
     font-size: 0.875rem;
@@ -61,7 +111,18 @@
 }
 
 .closeButton {
+    background: transparent;
+    border: 0;
+    line-height: 0;
+    border-radius: 4px;
     cursor: pointer;
+    width: 1rem;
+    height: 1rem;
+}
+
+.closeButton:hover {
+    background: var(--gray-500);
+    color: var(--red-400);
 }
 
 .modalContent footer a:hover {

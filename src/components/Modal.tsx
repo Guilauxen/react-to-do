@@ -1,24 +1,44 @@
 import { useState } from 'react';
 import styles from './Modal.module.css';
-import { Trash, Upload, X } from 'phosphor-react';
+import { Trash, X } from 'phosphor-react';
 
 interface ModalProps {
     modalTitle: string
-    modalContent: string
+    modalContent: string,
+    taskId: number,
+    onDeleteTask: (task: number) => void;
 }
 
-export function Modal({ modalTitle, modalContent }: ModalProps) {
+export function Modal({ modalTitle, modalContent, taskId, onDeleteTask }: ModalProps) {
     const [modalOpen, setModalOpen] = useState(false);
-    const toggleModal = () => {
-        setModalOpen(!modalOpen);
+    const [modalClose, setModalClose] = useState(false);
+    
+    function toggleModal() {
+        if (!modalOpen) {
+            setModalOpen(true);
+            setModalClose(false);
+        }
+        else {
+            setModalClose(true);
+            setTimeout(() => {
+                setModalOpen(false);
+            }, 280);
+        }
+    }
+    
+    function handleDeleteTask() {
+        toggleModal();
+        setTimeout(() => {
+            onDeleteTask(taskId);
+        }, 280);
     }
 
     return (
         <div>
-            <button onClick={toggleModal}><Upload /></button>
+            <button onClick={toggleModal}><Trash size={18} /> </button>
             {modalOpen && (
                 <div className={styles.modal}>
-                    <div className={styles.modalContent}>
+                    <div className={`${styles.modalContent} ${modalClose ? styles.modalContentClose : styles.modalContentOpen}`}>
                         <header>
                             <h3>{modalTitle}</h3>
                             <span 
@@ -30,11 +50,15 @@ export function Modal({ modalTitle, modalContent }: ModalProps) {
                         </header>
                         <p dangerouslySetInnerHTML={{ __html: modalContent}} />
                         <footer>
-                            <a href='#' id="btnModal" type="button"
+                            <a 
+                                href='#' 
+                                id="btnModal" 
+                                type="button"
                                 className={styles.closeButton}
-                                onClick={toggleModal}>
+                                onClick={handleDeleteTask}
+                            >
                                 <Trash size={16} />
-                                Excluir
+                                Delete
                             </a>
                         </footer>
                     </div>

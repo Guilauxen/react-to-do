@@ -1,4 +1,3 @@
-import { Trash } from "phosphor-react";
 import styles from './Task.module.css'
 import { ChangeEvent, useState } from "react";
 import { Modal } from "./Modal";
@@ -25,9 +24,6 @@ export function Task({ taskId, taskContent, onDeleteTask, onTaskDone }: TaskProp
         onTaskDone(taskId, checked);
     }
 
-    function handleDeleteTask() {
-        onDeleteTask(taskId);
-    }
 
     return (
         <div className={styles.task}>
@@ -42,12 +38,11 @@ export function Task({ taskId, taskContent, onDeleteTask, onTaskDone }: TaskProp
             <p className={taskDone ? styles.taskDoneText : styles.taskOpenText}>
                 {taskContent}
             </p>
-            <button onClick={handleDeleteTask}  title="Deletar Tarefa">
-                <Trash size={18} /> 
-            </button>
             <Modal 
-                modalTitle="Deletar Tarefa"
-                modalContent={`Você irá excluir a tarefa: <strong>${taskContent}</strong>`}
+                modalTitle="Delete Task"
+                modalContent={`You will delete the task: <strong>${taskContent}</strong>`}
+                taskId={taskId}
+                onDeleteTask={onDeleteTask}
             />
         </div>
     )

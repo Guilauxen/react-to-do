@@ -63,25 +63,25 @@ export function TaskList() {
                 <form onSubmit={handleCreateNewTask}>
                     <input 
                         type='text'
-                        placeholder='Adicione uma nova tarefa'
+                        placeholder='Create new task...'
                         onChange={handleNewTaskChange}
                         value={newTaskText}
                         required
                     />
                     <button type='submit'>
-                        Criar
+                        Create
                         <PlusCircle size={20} />
                     </button>
                 </form>
             </header>
             <div className={styles.taskListContentTop}>
                 <p className={styles.createdTask}>
-                    Tarefas criadas
+                    Created Tasks
                     <span>{totalTask}</span>
                 </p>
                 <p className={styles.finishedTask}>
-                    Concluídas
-                    <span>{totalDone} de {totalTask}</span>
+                    Done
+                    <span>{totalDone} of {totalTask}</span>
                 </p>
             </div>
             
@@ -102,8 +102,8 @@ export function TaskList() {
                 :
                     <div className={styles.taskListContent}>
                         <ClipboardText className={styles.taskContentIcon} size={56}/>
-                        <p>Você ainda não tem tarefas cadastradas</p>
-                        <p>Crie tarefas e organize seus itens a fazer</p>
+                        <p>You don't have any tasks registered yet.</p>
+                        <p>Create tasks and organize your to-do items.</p>
                     </div>
             }
         </main>
