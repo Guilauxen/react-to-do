@@ -1,5 +1,5 @@
 import styles from './Task.module.css'
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState, useEffect } from "react";
 import { Modal } from "./Modal";
 
 interface TaskProps {
@@ -12,6 +12,7 @@ interface TaskProps {
 export function Task({ taskId, taskContent, onDeleteTask, onTaskDone }: TaskProps) {
 
     const [taskDone, setTaskDone] = useState(false);
+    const [taskAppear, setTaskAppear] = useState(false);
 
     function handleTaskDone(event: ChangeEvent<HTMLInputElement>) {
         const checked = (event.target.checked);
@@ -24,9 +25,20 @@ export function Task({ taskId, taskContent, onDeleteTask, onTaskDone }: TaskProp
         onTaskDone(taskId, checked);
     }
 
+    useEffect(() => {
+        setTimeout(() => {
+            setTaskAppear(true);
+        }, 100);
+    }, []);
+
+    function handleDeleteTask() {
+        setTimeout(() => {
+            onDeleteTask(taskId);
+        }, 300);
+      }
 
     return (
-        <div className={styles.task}>
+        <div className={`${styles.task} ${taskAppear ? styles.taskAppear : ''}`}>
             <label className={styles.taskCheckbox}>
                 <input 
                     type="checkbox" 
@@ -42,7 +54,7 @@ export function Task({ taskId, taskContent, onDeleteTask, onTaskDone }: TaskProp
                 modalTitle="Delete Task"
                 modalContent={`You will delete the task: <strong>${taskContent}</strong>`}
                 taskId={taskId}
-                onDeleteTask={onDeleteTask}
+                onDeleteTask={handleDeleteTask}
             />
         </div>
     )

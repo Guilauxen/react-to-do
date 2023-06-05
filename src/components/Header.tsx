@@ -4,7 +4,7 @@ import styles from './Header.module.css'
 export function Header() {
     return (
         <header className={styles.header}>
-            <img src={rocketLogo} alt="Logo ToDoList" />
+            <img src={`.${rocketLogo}`} alt="Logo ToDoList" />
         </header>
     )
 }

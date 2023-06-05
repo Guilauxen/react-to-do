@@ -8,8 +8,13 @@
     border: solid var(--gray-400);
     border-radius: 8px;
     background: var(--gray-500);
-    
     padding: 1rem;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.taskAppear {
+    opacity: 1;
 }
 
 .taskCheckbox {
